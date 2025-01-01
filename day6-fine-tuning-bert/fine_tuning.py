@@ -4,10 +4,10 @@ import torch
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Device: {DEVICE}")
 
-pretrained = (BertModel
-              .from_pretrained(
-    r"../local_models/google-bert/bert-base-chinese/models--google-bert--bert-base-chinese/snapshots/c30a6ed22ab4564dc1e3b2ecbf6e766b0611a33f")
-              .to(DEVICE))
+pretrained = (
+    BertModel
+    .from_pretrained(r"../local_models/models--google-bert--bert-base-chinese/snapshots/c30a6ed22ab4564dc1e3b2ecbf6e766b0611a33f")
+    .to(DEVICE))
 print(pretrained)
 
 # 定义下游任务模型（增量模型）
@@ -67,8 +67,11 @@ DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 # times
 EPOCH = 30000
 
-tokenizer=BertTokenizer.from_pretrained(
-    r"../local_models/google-bert/bert-base-chinese/models--google-bert--bert-base-chinese/snapshots/c30a6ed22ab4564dc1e3b2ecbf6e766b0611a33f")
+tokenizer=(
+    BertTokenizer
+    .from_pretrained(r"../local_models/models--google-bert--bert-base-chinese/snapshots/c30a6ed22ab4564dc1e3b2ecbf6e766b0611a33f")
+)
+
 train_dataset = MyDataset("train")
 def collate_fn(batch):
     texts, labels = zip(*batch)
@@ -137,11 +140,11 @@ def run_training():
 """
 
 names=["negative","positive"]
-model = Model().to(DEVICE)
+model = MyModel().to(DEVICE)
 
 def collate_fn2(text):
     # Tokenize the texts
-    data = token.batch_encode_plus(
+    data = tokenizer.batch_encode_plus(
         batch_text_or_text_pairs=text,
         max_length=500,
         padding="max_length",
@@ -175,7 +178,6 @@ def test():
             outputs = outputs.argmax(dim=1)
             print(outputs)
             print(f"Model output: {names[outputs.item()]}")
-
 
 
 if __name__ == "__main__":
