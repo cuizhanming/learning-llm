@@ -78,6 +78,10 @@ def train():
                 # 计算准确率
                 acc = (labels == out).sum().item() / labels.numel()  # 计算准确率的公式
                 lr = optimizer.state_dict()["param_groups"][0]['lr']  # 获取当前学习率
+                # If lr down to 0.0, reset lr to 0.01
+                if lr < 1e-8:
+                    for param_group in optimizer.param_groups:
+                        param_group['lr'] = 2e-5
 
                 # 打印训练信息
                 print(f"epoch:{epoch},batch:{i},loss:{loss.item()},lr:{lr},acc:{acc}")
