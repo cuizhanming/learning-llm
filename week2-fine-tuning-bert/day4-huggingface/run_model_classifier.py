@@ -29,7 +29,7 @@ def download_and_create_classifier(task, model, cache_dir="local_models", device
 classifier = download_and_create_classifier(
     task = "token-classification",
 	model="google-bert/bert-base-chinese",
-    cache_dir="../local_models"
+    cache_dir="../../local_models"
 )
 
 print(classifier("The text to be classified."))
