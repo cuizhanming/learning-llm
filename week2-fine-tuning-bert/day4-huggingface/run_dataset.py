@@ -5,13 +5,13 @@ remote_dataset = load_dataset(
     # data_dir="",
     path="NousResearch/hermes-function-calling-v1",
     # cache_dir="~/.cache/huggingface/datasets",
-    cache_dir="../remote_datasets",
+    cache_dir="../../remote_datasets",
     split="train"
 )
 print(remote_dataset)
 
 # Load local cached dataset from Hugging Face
-local_dataset = load_from_disk(r"../local_datasets/ChnSentiCorp")
+local_dataset = load_from_disk(r"../../local_datasets/ChnSentiCorp")
 print(local_dataset)
 
 test_data = local_dataset["test"]
