@@ -192,7 +192,7 @@ def image_qa(query, image_path):
 
     return response.choices[0].message.content
 
-response = image_qa("哪个模型在AGI Eval数据集上表现最好。得分多少","llama2_page8/table_images/page_1_0.png")
+response = image_qa("哪个模型在AGI Eval数据集上表现最好。得分多少", "llama2_page8/table_images/page_1_0.png")
 print(response)
 
 """
