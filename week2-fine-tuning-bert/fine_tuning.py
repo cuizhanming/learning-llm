@@ -6,7 +6,8 @@ print(f"Device: {DEVICE}")
 
 pretrained = (
     BertModel
-    .from_pretrained(r"../local_models/models--google-bert--bert-base-chinese/snapshots/c30a6ed22ab4564dc1e3b2ecbf6e766b0611a33f")
+    .from_pretrained(
+        r"../local_models/models--google-bert--bert-base-chinese/snapshots/c30a6ed22ab4564dc1e3b2ecbf6e766b0611a33f")
     .to(DEVICE))
 print(pretrained)
 
@@ -69,7 +70,8 @@ EPOCH = 30000
 
 tokenizer=(
     BertTokenizer
-    .from_pretrained(r"../local_models/models--google-bert--bert-base-chinese/snapshots/c30a6ed22ab4564dc1e3b2ecbf6e766b0611a33f")
+    .from_pretrained(
+        r"../local_models/models--google-bert--bert-base-chinese/snapshots/c30a6ed22ab4564dc1e3b2ecbf6e766b0611a33f")
 )
 
 train_dataset = MyDataset("train")
