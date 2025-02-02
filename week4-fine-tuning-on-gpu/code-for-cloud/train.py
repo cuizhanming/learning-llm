@@ -1,3 +1,4 @@
+from accelerate.commands.config.config_args import cache_dir
 from transformers import AdamW
 from transformers.optimization import get_scheduler
 import torch
@@ -9,10 +10,10 @@ from torch.utils.data import DataLoader  # 导入PyTorch的数据加载器类
 dataset = MyDataset()  # 创建数据集对象
 
 model_path = "./gpt2-chinese-cluecorpussmall"
-# 加载预训练的分词器，用于文本编码
-tokenizer = AutoTokenizer.from_pretrained(model_path)
 # 加载预训练的模型，用于语言模型任务
-model = AutoModelForCausalLM.from_pretrained(model_path)
+model = AutoModelForCausalLM.from_pretrained(model_path, cache_dir="./models")
+# 加载预训练的分词器，用于文本编码
+tokenizer = AutoTokenizer.from_pretrained(model_path, cache_dir="./models")
 
 # 定义一个函数，用于将文本数据转换为模型所需的格式
 def collate_fn(data):
@@ -87,7 +88,7 @@ def train():
                 print(f"epoch:{epoch},batch:{i},loss:{loss.item()},lr:{lr},acc:{acc}")
 
         # 保存最后一轮模型参数
-        torch.save(model.state_dict(), "params/net.pt")  # 保存模型参数到指定路径
+        torch.save(model.state_dict(), "output/net.pt")  # 保存模型参数到指定路径
         print("权重保存成功！")  # 打印成功信息
 
 # 当该脚本作为主程序运行时，调用训练函数
