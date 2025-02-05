@@ -3,6 +3,7 @@ local_models/
 local_params/
 local_datasets/
 remote_datasets/
+llama_index_cache/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
