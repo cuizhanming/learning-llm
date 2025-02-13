@@ -67,4 +67,4 @@ if st.session_state.messages[-1]["role"] != "assistant":
         st.session_state.messages.append(message)
 
 # pip install streamlit
-# streamlit run streamlit.py
+# streamlit run day24-streamlit.py
