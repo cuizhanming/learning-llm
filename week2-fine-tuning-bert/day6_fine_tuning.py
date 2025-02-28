@@ -37,7 +37,7 @@ class MyDataset(Dataset):
 
     def __init__(self, subset="test"):
         # 加载数据集
-        self.dataset = load_from_disk(r"../local_datasets/ChnSentiCorp")
+        self.dataset = load_from_disk(r"../courses/No01-2025-Juke-AI/local_datasets/ChnSentiCorp")
         if subset == "train":
             self.dataset = self.dataset["train"]
         elif subset == "test":

@@ -1,7 +1,7 @@
 # Hugging Face Models cache
 local_models/
 local_params/
-local_datasets/
+courses/No01-2025-Juke-AI/local_datasets/
 remote_datasets/
 llama_index_cache/
 

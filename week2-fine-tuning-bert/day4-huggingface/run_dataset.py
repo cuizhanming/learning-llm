@@ -11,7 +11,7 @@ print(remote_dataset)
 
 
 # Load local cached dataset from Hugging Face
-local_dataset = load_from_disk(r"../../local_datasets/ChnSentiCorp")
+local_dataset = load_from_disk(r"../../courses/No01-2025-Juke-AI/local_datasets/ChnSentiCorp")
 print(local_dataset)
 
 test_data = local_dataset["test"]
