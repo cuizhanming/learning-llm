@@ -11,9 +11,9 @@ dataset = MyDataset()  # 创建数据集对象
 
 model_path = "./gpt2-chinese-cluecorpussmall"
 # 加载预训练的模型，用于语言模型任务
-model = AutoModelForCausalLM.from_pretrained(model_path, cache_dir="./models")
+model = AutoModelForCausalLM.from_pretrained(model_path, cache_dir="models")
 # 加载预训练的分词器，用于文本编码
-tokenizer = AutoTokenizer.from_pretrained(model_path, cache_dir="./models")
+tokenizer = AutoTokenizer.from_pretrained(model_path, cache_dir="models")
 
 # 定义一个函数，用于将文本数据转换为模型所需的格式
 def collate_fn(data):
