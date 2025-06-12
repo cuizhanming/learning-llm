@@ -1,0 +1,4 @@
+Youd: Hi I'm steve
+AI: Hello Steve! How can I assist you today?
+Youd: what is yours?
+AI: I’m an AI language model created by OpenAI, so I don’t have a personal name like a human would. But you can call me Assistant! How can I help you today?
